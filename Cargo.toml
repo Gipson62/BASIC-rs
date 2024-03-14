@@ -1,0 +1,5 @@
+[package]
+name = "basic-rs"
+
+[dependencies]
+atlas-core = "0.4.6"
