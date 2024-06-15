@@ -1,0 +1,13 @@
+[package]
+name = "atlas_core"
+version = "0.4.6"
+authors = ["Gipson62 <j.h.gipson62@gmail.com>"]
+description = "(In Alpha) Embeddable functional programming language"
+keywords = ["language", "tool", "programming-language", "language-agnostic"]
+categories = ["development-tools", "development-tools::build-utils"]
+license = "MIT"
+edition = "2021"
+
+[dependencies]
+heck = "0.5.0"
+internment = "0.8.3"
