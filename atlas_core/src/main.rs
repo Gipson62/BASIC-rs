@@ -3,6 +3,7 @@ pub mod parser;
 pub mod utils;
 
 fn main() {
+    let instant = std::time::Instant::now();
     let path = "atlas_core\\src\\test.atlas";
     let contents = match std::fs::read_to_string(path) {
         Ok(contents) => contents,
@@ -17,6 +18,8 @@ fn main() {
         }
         Err(error) => panic!("Problem opening the file: {:?}", error),
     }
+    let elapsed = instant.elapsed();
+    println!("\nTime elapsed: {}ms | {}µs", elapsed.as_millis(), elapsed.as_nanos());
 }
 
 #[macro_export]

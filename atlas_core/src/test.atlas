@@ -1,11 +1,62 @@
-fib a = match a 
-    | 0 => 0,
-    | 1 => 1,
-    \ _ => fib a - 1 + fib a - 2
-
-let main = do {
-    print "How many fib numbers do you want?";
-    a = read_number;
-    fib a;
-    print a;
+a1b2c3
+parse_operation op = match op {
+  | "add" => \ x y => x + y,
+  | "mul" => \ x y => x * y,
+  | "sub" => \ x y => x - y,
+  | "div" => \ x y => x / y,
+  \ _ => crash
+}
+qwerty
+calculate op_func x y = op_func x y
+!@#$%^&*()_+
+1234567890
+main = do {
+  x = readline_number;
+  y = readline_number;
+  op = readline_string;
+  result = calculate (parse_operation op) x y;
+  print_number result;
+}
+ZXCVBNM
+asdfghjkl
+main2 = do {
+  foo = 42;
+  bar = 3.14;
+  baz = "hello world";
+  qux = (foo + bar) * baz;
+  print_number qux;
+}
+lkjhgfdsa
+parse_operation2 op2 = match op2 {
+  | "concat" => \ str1 str2 => str1 ++ str2,
+  | "length" => \ str => length str,
+  \ _ => crash
+}
+POIUYTREWQ
+calculate2 op_func2 a b = op_func2 a b
+mnbvcxz
+main3 = do {
+  a = 100;
+  b = 200;
+  op2 = readline_string;
+  result2 = calculate2 (parse_operation2 op2) a b;
+  print_number result2;
+}
+1qaz2wsx
+parse_op3 op3 = match op3 {
+  | "and" => \ p q => p && q,
+  | "or" => \ p q => p || q,
+  | "not" => \ p => not p,
+  \ _ => crash
+}
+3edc4rfv
+calc3 opf3 x y = opf3 x y
+!@#$%^&*()_+{}|:""<>?
+5678901234
+main4 = do {
+  p = true;
+  q = false;
+  op3 = readline_string;
+  result3 = calc3 (parse_op3 op3) p q;
+  print_boolean result3;
 }

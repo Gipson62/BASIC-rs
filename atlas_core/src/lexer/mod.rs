@@ -214,7 +214,13 @@ impl<'l> Lexer<'l> {
                         .collect::<String>()
                         .as_ref(),
                 );
-                self.next().unwrap();
+                match self.next() {
+                    Some('"') => (),
+                    _ => {
+                        println!("{}:{}", self.current_pos, self.path);
+                        return Err("Unterminated string literal".to_string())
+                    },
+                }
                 Ok(TokenKind::Literal(
                     self::token::TokenLiteral::StringLiteral(Intern::new(string)),
                 ))
