@@ -4,13 +4,15 @@ use internment::Intern;
 
 use crate::utils::span::{Span, Spanned};
 
+pub type Program<'p> = Vec<Declaraction<'p>>;
+
 pub enum Declaraction<'decl> {
     Function {
         name: Intern<String>,
-        args: &'decl[Intern<String>],
+        args: &'decl [Intern<String>],
         body: &'decl Expression<'decl>,
         span: Span,
-    }
+    },
 }
 
 impl Spanned for Declaraction<'_> {
@@ -24,7 +26,7 @@ impl Spanned for Declaraction<'_> {
 #[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Expression<'exp> {
     Block {
-        body: &'exp[Expression<'exp>],
+        body: &'exp [Expression<'exp>],
         span: Span,
     },
     Arithmetic {
@@ -35,14 +37,14 @@ pub enum Expression<'exp> {
     },
     MatchExpression {
         cond: &'exp Expression<'exp>,
-        arms: &'exp[(Literal, Expression<'exp>)],
+        arms: &'exp [(Literal, Expression<'exp>)],
         span: Span,
     },
     Call {
         name: Intern<String>,
-        args: &'exp[Expression<'exp>],
+        args: &'exp [Expression<'exp>],
         span: Span,
-    }
+    },
 }
 
 impl Spanned for Expression<'_> {
@@ -59,18 +61,9 @@ impl Spanned for Expression<'_> {
 
 #[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Literal {
-    Number {
-        value: f64,
-        span: Span,
-    },
-    String {
-        value: Intern<String>,
-        span: Span,
-    },
-    Boolean {
-        value: bool,
-        span: Span,
-    },
+    Number { value: f64, span: Span },
+    String { value: Intern<String>, span: Span },
+    Boolean { value: bool, span: Span },
 }
 
 impl Spanned for Literal {

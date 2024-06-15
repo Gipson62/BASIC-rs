@@ -5,5 +5,5 @@ pub enum Arithmetic {
     Mul,
     Div,
     Mod,
-    Pow
+    Pow,
 }
